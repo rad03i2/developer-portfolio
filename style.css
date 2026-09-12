@@ -1,0 +1,13 @@
+:root { font-family: Inter, system-ui, Arial, sans-serif; color: #eef2ff; background: #0f172a; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.hero { min-height: 70vh; padding: 28px; background: radial-gradient(circle at top right, #2563eb, transparent 35%), #0f172a; }
+nav { display: flex; gap: 20px; align-items: center; }
+nav a { color: #c7d2fe; text-decoration: none; }
+.hero section { width: min(900px, 95%); margin-top: 120px; }
+.tag { color: #93c5fd; text-transform: uppercase; letter-spacing: .14em; }
+h1 { font-size: clamp(2.4rem, 7vw, 5rem); line-height: 1; margin: 12px 0; }
+main { width: min(1100px, 92%); margin: 40px auto; }
+.grid, .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { padding: 22px; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background: rgba(255,255,255,.07); }
+@media (max-width: 760px) { .grid, .skills { grid-template-columns: 1fr; } }
