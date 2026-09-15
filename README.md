@@ -16,3 +16,8 @@ A clean responsive portfolio website for presenting projects, skills, and a deve
 ## Run
 
 Open `index.html` in a browser.
+
+## Official links
+
+- Portfolio: https://rdwan.dev
+- Project page: https://rdwan.dev/projects/18-developer-portfolio.html
