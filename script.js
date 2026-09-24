@@ -1,27 +1,15 @@
-const projects = [
-  ['Smart File Manager', 'C# WinUI desktop file tools'],
-  ['Robotics Language Lab', 'Multi-language robotics examples'],
-  ['Python Automation Hub', 'Useful local automation scripts'],
-  ['Arabic UI Components', 'RTL components for Arabic web apps'],
-  ['IoT Sensor Dashboard', 'Arduino and Node.js telemetry demo'],
-  ['Data Analysis Notebooks', 'CSV analysis and reports']
-];
-
-const skills = ['C#', 'Python', 'JavaScript', 'TypeScript', 'PHP', 'C++', 'Java', 'Go', 'Rust', 'SQL', 'PowerShell', 'Arduino'];
-
-const projectGrid = document.querySelector('#projects');
-const skillGrid = document.querySelector('#skills');
-
-projects.forEach(([name, text]) => {
-  const card = document.createElement('article');
-  card.className = 'card';
-  card.innerHTML = `<h2>${name}</h2><p>${text}</p>`;
-  projectGrid.appendChild(card);
-});
-
-skills.forEach(skill => {
-  const item = document.createElement('article');
-  item.className = 'card';
-  item.textContent = skill;
-  skillGrid.appendChild(item);
-});
+const projects=[
+{n:'SmartFileManager',d:'A Windows-focused smart file manager for practical file organization workflows.',cat:'desktop',tags:['C#','WinUI 3'],url:'https://github.com/rad03i2/SmartFileManager'},
+{n:'Sinax',d:'A multi-tool desktop utility focused on files, media, documents and system workflows.',cat:'desktop',tags:['Python','Desktop'],url:'https://github.com/rad03i2/sinax2'},
+{n:'OCR Desk',d:'Desktop OCR tooling designed around a clear, practical document-recognition workflow.',cat:'tools',tags:['Python','OCR'],url:'https://github.com/rad03i2/ocr-desk'},
+{n:'IoT Sensor Dashboard',d:'An environmental sensor dashboard project for monitoring and presenting telemetry.',cat:'engineering',tags:['IoT','Dashboard'],url:'https://github.com/rad03i2/iot-sensor-dashboard'},
+{n:'Python Automation Hub',d:'A collection of useful local automation workflows packaged for repeatable use.',cat:'tools',tags:['Python','Automation'],url:'https://github.com/rad03i2/python-automation-hub'},
+{n:'Arabic UI Components',d:'Reusable interface components with right-to-left and Arabic-first design considerations.',cat:'web',tags:['Web','RTL'],url:'https://github.com/rad03i2/arabic-ui-components'}];
+const skills=['Python','JavaScript','TypeScript','C# / .NET','C++','Go','Rust','SQL','HTML & CSS','PowerShell','Git & GitHub','IoT / Arduino'];
+const copy={en:{navProjects:'Projects',navSkills:'Skills',navAbout:'About',eyebrow:'Developer · Engineer · Builder',hello:'Hi, I’m',intro:'I build practical, privacy-conscious software for the web and desktop, with a focus on automation, developer tools and engineering projects.',viewWork:'View my work',selected:'Selected work',projectsTitle:'Projects built to solve real problems.',toolkit:'Toolkit',skillsTitle:'Technologies I work with.',aboutLabel:'About',aboutTitle:'Learning by building.',aboutText:'I’m Radwan Abdulhadi Ahmed, an Environmental Engineering student and developer. I enjoy turning ideas into maintainable tools, exploring different languages, and documenting projects so others can run and learn from them.',all:'All',web:'Web',desktop:'Desktop',tools:'Tools',engineering:'Engineering'},ar:{navProjects:'المشاريع',navSkills:'المهارات',navAbout:'نبذة',eyebrow:'مطور · مهندس · صانع',hello:'مرحبًا، أنا',intro:'أبني برمجيات عملية تراعي الخصوصية للويب وسطح المكتب، مع اهتمام بالأتمتة وأدوات المطورين والمشاريع الهندسية.',viewWork:'شاهد أعمالي',selected:'أعمال مختارة',projectsTitle:'مشاريع بُنيت لحل مشكلات حقيقية.',toolkit:'الأدوات',skillsTitle:'تقنيات أعمل بها.',aboutLabel:'نبذة',aboutTitle:'أتعلّم من خلال البناء.',aboutText:'أنا رضوان عبدالهادي أحمد، طالب هندسة بيئية ومطور. أستمتع بتحويل الأفكار إلى أدوات قابلة للصيانة، واستكشاف لغات مختلفة، وتوثيق المشاريع بحيث يستطيع الآخرون تشغيلها والتعلم منها.',all:'الكل',web:'ويب',desktop:'سطح المكتب',tools:'أدوات',engineering:'هندسة'}};
+let lang=localStorage.getItem('portfolio-lang')||'en';let active='all';
+function renderProjects(){const grid=document.querySelector('#projectGrid');grid.textContent='';projects.filter(p=>active==='all'||p.cat===active).forEach((p,i)=>{const el=document.createElement('article');el.className='card';const top=document.createElement('div');top.className='card-top';const num=document.createElement('span');num.className='number';num.textContent=String(i+1).padStart(2,'0');const link=document.createElement('a');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label',`${p.n} on GitHub`);link.textContent='GitHub ↗';top.append(num,link);const h=document.createElement('h3');h.textContent=p.n;const desc=document.createElement('p');desc.textContent=p.d;const tags=document.createElement('div');tags.className='tags';p.tags.forEach(t=>{const s=document.createElement('span');s.className='tag';s.textContent=t;tags.append(s)});el.append(top,h,desc,tags);grid.append(el)})}
+function renderFilters(){const root=document.querySelector('#filters');root.textContent='';['all','web','desktop','tools','engineering'].forEach(c=>{const b=document.createElement('button');b.className=`filter${active===c?' active':''}`;b.textContent=copy[lang][c];b.onclick=()=>{active=c;renderFilters();renderProjects()};root.append(b)})}
+function setLanguage(next){lang=next;localStorage.setItem('portfolio-lang',lang);document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=copy[lang][el.dataset.i18n]);document.querySelector('#language').textContent=lang==='en'?'ع':'EN';renderFilters()}
+function init(){const skillGrid=document.querySelector('#skillGrid');skills.forEach(s=>{const el=document.createElement('div');el.className='skill';el.textContent=s;skillGrid.append(el)});document.querySelector('#year').textContent=new Date().getFullYear();const saved=localStorage.getItem('portfolio-theme');if(saved)document.documentElement.dataset.theme=saved;document.querySelector('#theme').onclick=()=>{const next=document.documentElement.dataset.theme==='light'?'dark':'light';document.documentElement.dataset.theme=next;localStorage.setItem('portfolio-theme',next)};document.querySelector('#language').onclick=()=>setLanguage(lang==='en'?'ar':'en');setLanguage(lang);renderProjects()}
+init();

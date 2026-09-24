@@ -1,26 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Radwan Abdulhadi | Developer</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portfolio of Radwan Abdulhadi Ahmed — developer building practical web, desktop, automation and engineering tools.">
+  <meta name="theme-color" content="#07111f"><title>Radwan Abdulhadi Ahmed | Developer</title>
+  <link rel="stylesheet" href="style.css"><script defer src="script.js"></script>
 </head>
 <body>
-  <header class="hero">
-    <nav><strong>Radwan</strong><a href="#projects">Projects</a><a href="#skills">Skills</a></nav>
-    <section>
-      <p class="tag">Web · Desktop · Automation · Robotics</p>
-      <h1>Developer building practical digital tools.</h1>
-      <p>I create small useful projects, clean interfaces, and automation tools with a focus on learning and real-world practice.</p>
-    </section>
-  </header>
-
-  <main>
-    <section id="projects" class="grid"></section>
-    <section id="skills" class="skills"></section>
-  </main>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hero" id="top">
+<nav class="nav wrap" aria-label="Primary"><a class="brand" href="#top">RA<span>.</span></a><div class="links"><a href="#projects" data-i18n="navProjects">Projects</a><a href="#skills" data-i18n="navSkills">Skills</a><a href="#about" data-i18n="navAbout">About</a></div><div class="actions"><button id="theme" aria-label="Toggle theme">◐</button><button id="language" aria-label="Switch language">ع</button></div></nav>
+<div class="hero-grid wrap"><section><p class="eyebrow" data-i18n="eyebrow">Developer · Engineer · Builder</p><h1><span data-i18n="hello">Hi, I’m</span><br>Radwan Abdulhadi Ahmed.</h1><p class="lead" data-i18n="intro">I build practical, privacy-conscious software for the web and desktop, with a focus on automation, developer tools and engineering projects.</p><div class="cta"><a class="button primary" href="#projects" data-i18n="viewWork">View my work</a><a class="button" href="https://github.com/rad03i2" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section><aside class="terminal" aria-label="Developer profile"><div class="dots">● ● ●</div><pre><code><span>const</span> developer = {
+  name: "Radwan",
+  github: "@rad03i2",
+  focus: ["web", "desktop",
+          "automation", "engineering"],
+  builds: "useful software"
+};</code></pre></aside></div>
+</header>
+<main id="main">
+<section class="section wrap" id="projects"><div class="section-head"><div><p class="eyebrow" data-i18n="selected">Selected work</p><h2 data-i18n="projectsTitle">Projects built to solve real problems.</h2></div><div class="filters" id="filters" aria-label="Project filters"></div></div><div class="project-grid" id="projectGrid"></div></section>
+<section class="band"><div class="section wrap" id="skills"><p class="eyebrow" data-i18n="toolkit">Toolkit</p><h2 data-i18n="skillsTitle">Technologies I work with.</h2><div class="skill-grid" id="skillGrid"></div></div></section>
+<section class="section wrap about" id="about"><div><p class="eyebrow" data-i18n="aboutLabel">About</p><h2 data-i18n="aboutTitle">Learning by building.</h2></div><div><p data-i18n="aboutText">I’m Radwan Abdulhadi Ahmed, an Environmental Engineering student and developer. I enjoy turning ideas into maintainable tools, exploring different languages, and documenting projects so others can run and learn from them.</p><p class="arabic-name">رضوان عبدالهادي أحمد</p><a class="text-link" href="https://rdwan.dev" target="_blank" rel="noopener noreferrer">rdwan.dev ↗</a></div></section>
+</main>
+<footer><div class="wrap footer"><p>© <span id="year"></span> Radwan Abdulhadi Ahmed</p><p>GitHub · @rad03i2</p></div></footer>
+</body></html>
